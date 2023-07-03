@@ -17,7 +17,7 @@ bool display::OnInit(){
         return false;
     }
 
-    game = new Game();
+    game = new Game(renderer);
 
     return true;
 }

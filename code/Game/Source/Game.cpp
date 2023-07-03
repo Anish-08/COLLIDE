@@ -2,9 +2,10 @@
 #include"defs.h"
 #include<iostream>
 
-Game::Game(){
+Game::Game(SDL_Renderer* rendereer){
     running = true;
     timer= 0;
+    renderer = rendereer;
     initialize();
 }
 void Game::initialize(){
@@ -12,12 +13,12 @@ void Game::initialize(){
     while(listOfBodies.size()) listOfBodies.pop_back();
 
     //Add player
-    Bodies* B = new Bodies(WIDTH/2-10,HEIGHT/2-10,20,20,0);
+    Bodies* B = new Bodies(WIDTH/2-10,HEIGHT/2-10,20,20,0,renderer);
     B->SetColour(255,0,0);
     listOfBodies.push_back(B);
 
     // Add one obstacle
-    Bodies* obs = new Bodies(WIDTH/2-50,HEIGHT/2-40,20,20,1);
+    Bodies* obs = new Bodies(WIDTH/2-50,HEIGHT/2-40,20,20,1,renderer);
     obs->SetColour(0,0,0);
     listOfBodies.push_back(obs);
 }

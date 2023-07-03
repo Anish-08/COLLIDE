@@ -5,7 +5,8 @@
 
 class Bodies{
     public:
-    Bodies(double u, double v, double w, double h, int type);
+    Bodies(double u, double v, double w, double h, int type, SDL_Renderer* renderer);
+    ~Bodies();
     bool check_col(Bodies* B);
     void display(SDL_Renderer* renderer);
     void SetColour(int ri, int gi, int bi);
@@ -16,6 +17,8 @@ class Bodies{
     double vel_x,vel_y;
     
     private:
+    SDL_Texture * texture;
+    SDL_Surface * image;
     double wid,hei;
     int type;
     int r,g,b,o;

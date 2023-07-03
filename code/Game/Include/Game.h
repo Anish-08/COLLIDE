@@ -6,7 +6,7 @@
 
 class Game{
     public:
-    Game();
+    Game(SDL_Renderer* renderer);
     void initialize();
     void key_down(SDL_KeyboardEvent* event );
     void key_up(SDL_KeyboardEvent* event );
@@ -14,6 +14,7 @@ class Game{
     void render(SDL_Renderer* renderer);
 
     private:
+    SDL_Renderer* renderer;
     int timer;
     std::vector<Bodies*> listOfBodies;
     bool running;
